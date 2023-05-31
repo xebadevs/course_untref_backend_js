@@ -5,6 +5,7 @@
     "main": "index.js",
     "type": "module",
     "scripts": {
+        "start1": "node --no-warnings ./src/server.js",
         "eslint": "eslint src/"
     },
     "repository": {
