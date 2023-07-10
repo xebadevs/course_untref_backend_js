@@ -1,8 +1,7 @@
 const express = require("express");
 const server = express();
 const path = require("path");
-
-require("dotenv").config({ path: path.join(__dirname, "../.env") });
+const { jsonwebtoken } = require("./security.js");
 
 // Middlewares
 server.use(express.json());
@@ -18,22 +17,14 @@ const user = {
 };
 
 server.post("/login", (req, res) => {
-  const { username, password } = req.body;
+  const { username, isAdmin } = req.body;
 
   if (username === user.username && password === user.password) {
-    return res.status(200).send( token: generateToken(username, password));
+    return res.status(200).send( token: generateToken(username, user.isAdmin));
   }
 
   res.status(401).send("Credenciales invalidas");
 });
-
-function generateToken(username, password){
-    return "token";
-}
-
-function verifyToken(req, res, next){
-    next();
-}
 
 server.get("/recurso", (req, res) => {
   res
