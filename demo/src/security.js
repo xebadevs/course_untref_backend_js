@@ -16,7 +16,7 @@ function verifyToken(req, res, next) {
   if (!token) return res.status(400).send("Empty token");
 
   jwt.verify(token, process.env.SECRET_KEY, (error, decoded) => {
-    if (error) return res.status(400).send("empty token");
+    if (error) return res.status(401).send(error.message);
     console.log(decoded);
   });
 
