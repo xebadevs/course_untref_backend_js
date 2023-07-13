@@ -23,3 +23,13 @@ function generateToken(username, isAdmin) {
     return jwt.sign({ username, isAdmin }, process.env.SECRET_KEY, { expiresIn: 30s})
 }
 ```
+
+[Hipervínculo](https://www.closting.com)
+
+Lista de lenguajes de programación:
+- JavaScript:
+  - Frameworks:
+    - Nest
+    - Express
+- Java
+- PHP
